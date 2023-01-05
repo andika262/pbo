@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<br><b></b>
+<header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
+  <img class="w3-image" src="{% static 'laut.png' %}" alt="Architecture" width="1500" height="300">
+  <div class="w3-display-left w3-text-white" style="padding:20px">
+    <span class="w3-jumbo w3-hide-small w3-text-white"> </span><br>
+    <p><a href="/halamanjurnal"
+        class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">Klik Info
+        Wisata Disini</a></p>
+  </div>
+</header>
+<div class="w3-light-white" style="background-color:#6f6e6e" id="tour" ;>
+  <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
+    <h2 class="w3-wide w3-center">ABOUT NUSANTARA.GO</h2>
+  </div>
+</div>
+<div class="w3-row w3-padding-64" id="about">
+  <div class="w3-col m6 w3-padding-large w3-hide-small">
+    <img src="{% static 'indoku.png' %}" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="600"
+      height="750">
+  </div>
+
+  <div class="w3-col m6 w3-padding-large">
+    <h1 class="w3-center">
+      <Nusantara class="go"></Nusantara>
+    </h1><br>
+    <p class="w3-large w3-text-black w3-hide-medium">  Nusantara.go merupakan platform yang Di dalamnya tersedia berbagai informasi tentang destinasi wisata di berbagai daerah. Semua destinasi wisata bisa di lihat kapan saja, melalui updatean terbaru dan titik lokasi peta yang akan menunjukan dimana tempat yang bagus untuk anda kunjungi dengan di sertai deskripsi tempat tersebut</p>
+    <p class="w3-large w3-text-black w3-hide-medium">Nusantara.go adalah produk mesin pencarian juga, tetapi difokuskan untuk mencari berbagai wisata di indonesia. Dengan adanya Nusantara.go ini, para wisatawan dari berbagai mancanegara bisa melihat keanekaragaman suku dan budaya dari berbagai daerah di indonesia, lewat Nusantara.go ini </p>
+  </div>
+</div>
+
+<!-- End Page Content -->
+</div>
+
+{% endblock %}

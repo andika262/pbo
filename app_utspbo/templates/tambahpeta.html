@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    .leaflet-container {
+      height: 400px;
+      width: 600px;
+      max-width: 100%;
+      max-height: 100%;
+    }
+  </style>
+<h1>{{title}}</h1>
+
+<div id="map" style="width: 100%;"></div>
+<script>
+
+    const map = L.map('map').setView([51.505, -0.09], 13);
+
+    const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+
+    const marker = L.marker([51.5, -0.09]).addTo(map)
+      .bindPopup('<b>Hello world!</b><br />I am a popup.').openPopup();
+
+    const popup = L.popup()
+      .setLatLng([51.513, -0.09])
+      .setContent('I am a standalone popup.')
+      .openOn(map);
+
+    function onMapClick(e) {
+      popup
+        .setLatLng(e.latlng)
+        .setContent(`You clicked the map at ${e.latlng.toString()}`)
+        .openOn(map);
+    }
+
+    map.on('click', onMapClick);
+
+  </script>
+<div class="container">
+    <div class="row">
+        <div class="col md-6">
+            {% if pesan %}
+            <div class="alert alert-success">
+                {{ pesan }}
+            </div>
+
+            {% endif %}
+            <form method="post">
+                <h3>Tambah Data Peta Lokasi</h3>
+                {% csrf_token %}
+                <div>
+                    <h4>Nama Daerah</h4>
+                    {{ form.nama }}
+                </div>
+                <div>
+                    <h4>Koordinat X</h4>
+                    {{ form.coordX }}
+                </div>
+                <div>
+                    <h4>Koordinat Y</h4>
+                    {{ form.coordY }}
+                </div>
+
+                <input type="submit" value="Simpan" class="btn btn-success mt-3">
+                <a href="/halamanjurnal" class="btn btn-warning mt-3">Kembali</a>
+                <br><br>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

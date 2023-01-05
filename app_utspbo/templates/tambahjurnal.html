@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>{{title}}</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col md-6">
+            {% if pesan %}
+            <div class="alert alert-success">
+                {{ pesan }}
+            </div>
+            {% endif %}
+            <form method="post" enctype="multipart/form-data">
+                <h3>Tambah Data Daerah Wisata</h3>
+                {% csrf_token %}
+                <div>
+                    <h4>Nama Wisata:</h4>
+                    {{ form.nama_wisata }}
+                </div>
+                <div>
+                    <h4>Deskripsi:</h4>
+                    {{ form.deskripsi }}
+                </div>
+                <div>
+                    <h4>Nama Daerah:</h4>
+                    {{ form.nama_daerah}}
+                </div>
+                <div>
+                    <h4>Foto:</h4>
+                    {{ form.foto }}
+                </div>
+                <div>
+                    <h4>Kordinat Peta:</h4>
+                    {{ form.coord }}
+                </div>
+
+                <input type="submit" value="Simpan" class="btn btn-success mt-3">
+                <a href="/halamanjurnal" class="btn btn-warning mt-3">Kembali</a>
+                <br><br>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

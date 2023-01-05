@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<style>
+  .leaflet-container {
+    height: 400px;
+    width: 600px;
+    max-width: 100%;
+    max-height: 100%;
+  }
+</style>
+<br><br>
+<header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
+  <img class="w3-image" src="{% static 'laut.png' %}" alt="Architecture" width="1500" height="800">
+</header>
+<div class="w3-light-blue" id="tour">
+
+  <div id="map" style="width: 100%;"></div>
+  <script src="{% static 'js/home.js' %}"></script>
+<!-- Image header -->
+<br>
+<div class="container">
+  <h2 class="w3-wide w3-center" style="margin: 20px;">Informasi Nusantara.go</h2>
+  <table class="table table-success table-striped" style="text-align: center;">
+    <thead>
+      <tr>
+        <th scope="col">Nama Wisata</th>
+        <th scope="col">Deskripsi</th>
+        <th scope="col">Nama Daerah</th>
+        <th scope="col">FOTO</th>
+        <th scope="col">DETAIL</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for home in homes %}
+      <tr>
+        <td>{{home.nama_wisata}}</td>
+        <td>{{home.deskripsi}}</td>
+        <td>{{home.nama_daerah}}</td>
+        {% if home.foto %}
+        <td><img src="{{home.foto.url}}" alt="" srcset="" style="width: 150px;"></td>
+        {%else%}
+        <td></td>
+        {%endif%}
+        <td>
+          <a href="{% url 'updatejurnal' home.id %}" class="btn btn-outline-primary">Edit</a>
+          <a href="#" class="btn btn-outline-danger" onclick="deletejurnal({{ home.id }})">Hapus</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <script>
+    function deletejurnal(id_home) {
+      swal({
+        title: "Apakah Anda Yakin?",
+        text: "Setelah dihapus, data tidak dapat dikembalikan!",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+        })
+        .then((willDelete) => {
+          if (willDelete) {
+            swal("Berhasil!", "Data Film Berhasil Dihapus!", "success").then(function () {
+              window.location = "/halamanjurnal/deletejurnal/" + id_home;
+            });
+          }
+        });
+    }
+  </script>
+  
+</div><br><br>
+{% endblock %}

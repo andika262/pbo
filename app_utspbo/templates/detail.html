@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<br><br>
+<div class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
+  <img class="w3-image" src="{% static 'laut.png' %}" alt="Architecture" width="1500" height="800">
+    <div class="w3-display-left w3-text-white" style="padding:20px">
+      <span class="w3-jumbo w3-hide-small w3-text-black"> </span><br>
+      <div class="col-md-6"  style="margin-left: -40px; margin-left: 20px;">
+        <div class="card-body" style="margin-top: 10px;">
+          <h2 class="card-title" style="margin-left: -10px;">{{Jurnal.judul}}</h2>
+          <p class="card-text" style="font-size: 17px;"> Penulis : {{Jurnal.penulis}}</p>
+          <p class="card-text" style="font-size: 17px;"> Penerbit : {{Jurnal.penerbit}}</p>
+          <p class="card-text" style="font-size: 17px;">Kampus : {{Jurnal.kampus}}</p>
+          <p class="card-text" style="font-size: 17px;">Nama Ikan : {{Jurnal.kelompok_ikan}}</p>
+          <p class="card-text" style="font-size: 17px;">Nama Latin Ikan : {{Jurnal.nama_latin}}</p>
+          <h5 class="card-title">Deskripsi</h5>
+          <p  style="text-align: justify; font-size: 15px;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus vero aspernatur nihil repellendus corporis. Cumque nobis excepturi exercitationem earum eligendi? Sint et omnis corporis dicta dolores repudiandae incidunt nam voluptatum.</p>
+        </div>
+      </div>
+    </div>
+  </div></div><br><br>
+  {% endblock %}
+
+ 
