@@ -24,6 +24,7 @@ SECRET_KEY = 'django-insecure-%xw!wj1qrflb-z0wz1i+_2806@1^@racc7f7l!k2ux+jkal*xd
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
+
 CSRF_TRUSTED_ORIGINS = ['https://*.railway.app']
 
 ALLOWED_HOSTS = ["*"]
@@ -121,7 +122,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
