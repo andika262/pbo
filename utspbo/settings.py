@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'app_utspbo',
+    'django.middleware.csrf.CsrfViewMiddleware',
     'crispy_forms',
     'django_social_share',
 ]
